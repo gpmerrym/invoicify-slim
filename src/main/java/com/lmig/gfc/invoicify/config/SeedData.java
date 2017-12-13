@@ -30,6 +30,6 @@ public class SeedData {
 		user.setPassword(encodedPassword);
 		user.addRole("ACCOUNTANT");
 		userRepository.save(user);
-	}
+	} 
 
 }
