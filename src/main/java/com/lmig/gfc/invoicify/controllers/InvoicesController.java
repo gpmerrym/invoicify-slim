@@ -26,7 +26,6 @@ import com.lmig.gfc.invoicify.services.InvoiceRepository;
 public class InvoicesController {
 
 	private InvoiceRepository invoiceRepo;
-	private InvoiceLineItemRepository invoiceLineItemRepo;
 	private CompanyRepository companyRepo;
 	private BillingRepository billingRepo;
 
@@ -34,7 +33,6 @@ public class InvoicesController {
 			CompanyRepository companyRepo, BillingRepository billingRepo) {
 
 		this.invoiceRepo = invoiceRepo;
-		this.invoiceLineItemRepo = invoiceLineItemRepo;
 		this.companyRepo = companyRepo;
 		this.billingRepo = billingRepo;
 	}
