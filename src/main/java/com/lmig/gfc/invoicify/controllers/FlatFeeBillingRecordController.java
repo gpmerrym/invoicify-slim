@@ -26,8 +26,6 @@ public class FlatFeeBillingRecordController {
 		this.billingRepo = billingRepo;
 	}
 
-
-
 	@PostMapping("")
 	public ModelAndView create(FlatFeeBillingRecord record, long clientId, Authentication auth) {
 		

@@ -8,36 +8,36 @@
 <body>
 
 	{{> common/_nav }}
-	<form action="/billing-records/flat-fees" method="post">
+	<form id="create-flat-fees-form" action="/billing-records/flat-fees" method="post">
 	  <h2>Make a flat-fee billing record</h2>
-	  <input type="number" step=".01" name="amount" required placeholder="amount">
-	  <select name="clientId" required>
+	  <input id="flat-fees-amount" type="number" step=".01" name="amount" required placeholder="amount">
+	  <select id="flat-fees-clientId" name="clientId" required>
 	    <option value="">Choose one...</option>
 	    {{#companies}}
 	      <option value="{{ id }}">{{ name }}</option>
 	    {{/companies}}
 	  </select>
-	  <input type="text" name="description" required placeholder="describe it">
-	  <input type="hidden" name="{{ _csrf.parameterName }}" value="{{ _csrf.token }}">
+	  <input id="flat-fees-description" type="text" name="description" required placeholder="describe it">
+	  <input id="flat-fees-csrf" type="hidden" name="{{ _csrf.parameterName }}" value="{{ _csrf.token }}">
 	  <button>Create me!</button>
 	</form>
 	
-	<form action="/billing-records/rate-baseds" method="post">
+	<form id="create-ratebased-form" action="/billing-records/rate-baseds" method="post">
 	  <h2>Make a rate-based billing record</h2>
-	  <input type="number" step=".01" name="rate" required placeholder="rate">
-	  <input type="number" step=".01" name="quantity" required placeholder="quantity">
-	  <select name="clientId" required>
+	  <input id="ratebased-rate" type="number" step=".01" name="rate" required placeholder="rate">
+	  <input id="ratebased-quantity" type="number" step=".01" name="quantity" required placeholder="quantity">
+	  <select id="ratebased-name" name="clientId" required>
 	    <option value="">Choose one...</option>
 	    {{#companies}}
 	      <option value="{{ id }}">{{ name }}</option>
 	    {{/companies}}
 	  </select>
-	  <input type="text" name="description" required placeholder="describe it">
-	  <input type="hidden" name="{{ _csrf.parameterName }}" value="{{ _csrf.token }}">
+	  <input id="ratebased-description" type="text" name="description" required placeholder="describe it">
+	  <input id="ratebased-csrf" type="hidden" name="{{ _csrf.parameterName }}" value="{{ _csrf.token }}">
 	  <button>Create me!</button>
 	</form>
 	
-	<table>
+	<table id="record-table">
 	  <thead>
 	    <tr>
 	      <th>Created by</th>
@@ -49,7 +49,7 @@
 	      <th>Total</th>
 	    </tr>
 	  </thead>
-	  <tbody>
+	  <tbody id="record-row">
 	    {{#records}}
 	      <tr>
 	        <td>{{ createdBy.username }}</td>
@@ -63,6 +63,9 @@
 	    {{/records}}
 	  </tbody>  
 	</table>
+	
+	<script src = "/webjars/jquery/3.2.1/jquery.min.js"></script>
+	<script src = "/js/billing-records.js"></script>
 
 </body>
 </html>

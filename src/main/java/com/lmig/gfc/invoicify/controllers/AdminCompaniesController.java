@@ -12,7 +12,7 @@ import com.lmig.gfc.invoicify.services.CompanyRepository;
 @Controller
 @RequestMapping("/admin/companies")
 public class AdminCompaniesController {
-	
+	 
 	private CompanyRepository companyRepo;
 	
 	public AdminCompaniesController(CompanyRepository companyRepo) {
@@ -22,6 +22,11 @@ public class AdminCompaniesController {
 	@GetMapping("")
 	public ModelAndView showDefault() {
 		ModelAndView mv = new ModelAndView("admin/companies/default");
+		
+		//added this step
+		//add "companies" to the companies HTML 
+		mv.addObject("companies", companyRepo.findAll());
+		
 		return mv;
 	}
 	

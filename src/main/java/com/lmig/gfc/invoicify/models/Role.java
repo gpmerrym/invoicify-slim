@@ -21,7 +21,7 @@ public class Role {
 	
 	@ManyToOne(optional = false)
 	private User user;
-
+	
 	public Role() {}
 
 	public Long getId() {
